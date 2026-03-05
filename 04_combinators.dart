@@ -216,9 +216,6 @@ void main() async {
     if (e.errors.$2 != null) {
       print('slot 2 error: ${e.errors.$2!.error}');
     }
-  } catch (e, s) {
-    print('Exception details:\n $e');
-    print('Stack trace:\n $s');
   }
 
   // To tolerate partial failures, wrap each future with catchError
