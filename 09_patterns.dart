@@ -58,6 +58,7 @@ void main() async {
 
   // Only execute after a quiet period — useful for search-as-you-type
   final debounced = Debounce<String>(Duration(milliseconds: 50));
+  debounced.onCall = (v) => print('debounced: $v');
 
   debounced.call('a');
   debounced.call('ab');
@@ -67,7 +68,6 @@ void main() async {
 
   debounced.call('dart');
   debounced.call('dart f');  // only this one fires
-  debounced.onCall = (v) => print('debounced: $v');
 
   await Future.delayed(Duration(milliseconds: 80));
   debounced.dispose();
